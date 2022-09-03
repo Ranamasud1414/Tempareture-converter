@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Tempareture convater
+    </title>
+    <style>
+        body{
+            padding: 50px 100px;
+        }
+        h1{
+            text-align: center;
+            /* color: aqua; */
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            
+        }
+        #container{
+            text-align: center;
+            background-color: rgb(21, 184, 129);
+            padding: 50px;
+            
+        }
+        .inp{
+           
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: 30px;
+            text-align: center;
+
+        }
+        .div1{
+            display: inline-block;
+        }
+        label{
+            font-size: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+            
+        }
+        .bt{
+            text-align: center;
+            margin: 20px;
+            cursor: pointer;
+            
+        }
+        #btn{
+            /* background-color: rgb(47, 38, 38); */
+            color: beige;
+            border: none;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 30px;
+            
+            background-color: black;
+
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>Tempareture convater</h1>
+    <div id="container">
+        
+        <div class="div1" >
+            <label for="">Celsius</label><br>
+            <input type="number"   placeholder="0" class="inp" id="cel">
+
+        </div>
+        
+        <div class="div1" >
+            <label for="">Fahrenheit</label><br>
+            <input type="number" placeholder="32" class="inp"  id="feh">
+        </div>
+    </div>
+    <div class="bt">
+    <button id="btn">Reset <i class="fa fa-refresh"></i></button>
+    
+</div>
+
+
+
+    <!-- javascript -->
+    <script>
+        let cel=document.getElementById("cel");
+        let feh=document.getElementById("feh");
+        let btn=document.getElementById("btn");
+        
+
+        cel.addEventListener("input",function(){
+            let c=this.value;
+            let f=(c * 9/5) + 32;
+            if(!Number.isInteger(f)){
+                f=f.toFixed(4);
+            }
+            feh.value= f;
+        });
+        feh.addEventListener("input",function(){
+            let f=this.value;
+            let c=(f - 32) * 5/9;
+            if(!Number.isInteger(c)){
+                c=c.toFixed(4);
+            }
+             cel.value= c;
+        });
+        btn.addEventListener('click',()=>{
+    // clearing the input
+            cel.value = "";
+            feh.value = "";
+        });
+
+    </script>
+    
+</body>
+</html>
